@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <style>
+      #textDiv {
+        height: 1500px;
+      }
+      p {
+        margin-top: 100px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='linkDiv'>
+      <a href="#link1" class="scrollLink">Scroll to link1</a>
+      <a href="#link2" class="scrollLink">Scroll to link2</a>
+    </div>
+    <div id="textDiv">
+      <p id="link1"><strong>Anchor 1</strong> - Lorem ipsum dolor sit amet, nonumes voluptatum mel ea.</p>
+      <p id="link2"><strong>Anchor 2</strong> - Ex ignota epicurei quo, his ex doctus delenit fabellas.</p>
+    </div>
+    <script>
+      $(document).ready(function() {
+          $("a.scrollLink").click(function(event) {
+              event.preventDefault();
+              $("html, body").animate({
+                  scrollTop: $($(this).attr("href")).offset().top
+                }, 500);
+            });
+        });
+    </script>
+  </body>
+</html>
